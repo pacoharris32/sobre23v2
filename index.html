@@ -18,6 +18,34 @@
             padding: 0;
             margin: 0;
         }
+       /* Cambia el orden de los widgets */
+.leaflet-top.leaflet-left {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajustes adicionales para mejorar la apariencia */
+.leaflet-top.leaflet-left .leaflet-control-search {
+    order: 1; /* Cambia el orden del widget de búsqueda */
+    margin-top: 80px; /* Ajuste de margen superior */
+}
+
+.leaflet-control-zoom, .leaflet-bar {
+    margin-top: 10px;
+}
+
+
+
+        /* Ajustes adicionales para mejorar la apariencia */
+        /*.leaflet-control-zoom, .leaflet-bar { */
+        /*    margin-top: 10px;*/
+        /*} */
+
+        /* Estilo personalizado para cambiar el orden de los widgets */
+        /*.custom-search-button { */
+        /*order: 2; /* Cambia el orden del widget de búsqueda */ 
+        /*}*/
+
         </style>
         <title>Acuíferos en Condición de Sobreexplotación,  09/11/2023</title>
     </head>
@@ -46,7 +74,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Información<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#" data-toggle="modal" data-target="#bienvenidaModal">Acerca de</a></li>
-                        <li><a href="download/c_acuiferos_2023_doc.zip" data-toggle="modal" data-target="#bienvenidaModal">Descagar datos</a></li>
+                        <li><a href="download/c_acuiferos_2023_doc.zip" data-toggle="modal" data-target="#bienvenidaModal">Descargar datos</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#bienvenidaModal">Metadatos</a></li>
 
 
@@ -374,6 +402,8 @@
         });
 
         map.addControl(searchWidget);
+        document.getElementsByClassName('search-button')[0].className += ' custom-search-button'; // Agregamos una clase específica para el widget de Búsqueda
+
 
         // Función para limpiar el resaltado
         function clearHighlight() {
